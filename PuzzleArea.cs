@@ -36,11 +36,21 @@ namespace Puzle15
                 for(int col = 1; col <5; col++)
                 {
                     block = new PuzzleBlock();
-                    block.Top = row * 84;
-                    block.Left = col * 84;
+                    block.Top = row * 87;
+                    block.Left = col * 87;
                     block.Text = blockCount.ToString();
+                    if(blockCount == 16)
+                    {
+                        block.Text = string.Empty;
+                        block.BackColor = Color.Gray;
+                        block.FlatStyle = FlatStyle.Flat;
+                        block.FlatAppearance.BorderSize = 0;
+                    }
+
                     blockCount++;
                     this.Controls.Add(block);
+                    block.FlatStyle = FlatStyle.Flat;
+                    block.FlatAppearance.BorderSize = 0;
                 }
 
             }
