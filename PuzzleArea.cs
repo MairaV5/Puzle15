@@ -12,11 +12,14 @@ namespace Puzle15
 {
     public partial class PuzzleArea : Form
     {
+        Random rand = new Random();
+
         public PuzzleArea()
         {
             InitializeComponent();
             InitializePuzzleArea();
             InitializeBlocks();
+            ShuffleBlocks();
         }
         
         private void InitializePuzzleArea()
@@ -48,7 +51,7 @@ namespace Puzle15
                     {
                         block.Name = "EmptyBlock";
                         block.Text = string.Empty;
-                        block.BackColor = Color.Gray;
+                        block.BackColor = Color.LawnGreen;
                         block.FlatStyle = FlatStyle.Flat;
                         block.FlatAppearance.BorderSize = 0;
                     }
@@ -107,6 +110,21 @@ namespace Puzle15
                 return false;
             }
             //Math.Abs- modulis
+        }
+
+        private void ShuffleBlocks()
+        {
+            int randNumber;
+            string blockName;
+            Button block;
+
+            for(int i = 0; i < 100; i++)
+            {
+                randNumber = rand.Next(1, 16);
+                blockName = "Block" + randNumber.ToString();
+                block = (Button)this.Controls[blockName];
+                SwapBlocks(block);
+            }
         }
     }
 }
