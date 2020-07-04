@@ -156,5 +156,10 @@ namespace Puzle15
         {
             MessageBox.Show("Wow, you are smart and you solved it! Damn!!!");
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
